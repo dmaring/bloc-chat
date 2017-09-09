@@ -1,6 +1,6 @@
 (function() {
     function HomeCtrl() {
-        this.myMessage = "Drakaris!";
+        this.myMessage = "Welcome to the HomeCtrl";
     }
 
     angular
