@@ -1,1 +1,25 @@
-<h1>{{ home.myMessage }}</h1>
+<div class="container" ng-controller="HomeCtrl as home">
+    <div class="row">
+        <div class="panel panel-default">
+          <div class="panel-title"> {{ activeRoom.$value }} </div>
+          <div class="panel-body">
+            <div class="container">
+                <div class="row message-bubble" ng-repeat="message in activeMessages">
+                    <p class="text-muted">{{ message.username }}</p>
+                    <p> {{ message.content }}
+                        <span class="time-sent">{{ message.sentAt }}</span>
+                    </p>
+                </div>
+            <div class="panel-footer">
+                 <div class="input-group">
+                     <input type="text" class="form-control">
+                     <span class="input-group-btn">
+                     <button class="btn btn-default" type="button">Send</button>
+                    </span>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,5 @@
 (function() {
-    function Room($firebaseArray) {
+    function Room($rootScope, $firebaseArray) {
         /**
         * @desc Global object to hold room properties
         * @type {object}
@@ -33,13 +33,24 @@
                 console.log("added record with id " + id);
                 console.log(roomsList.$indexFor(id)); // returns location in the array
             });
-        }
-
+        };
+        /**
+        * @function Room.setRoom
+        * @desc Set the active room to be displayed
+        * @param {object} room
+        */
+        Room.setRoom = function(room) {
+            // set active room
+            // Room.activeRoom = room
+            $rootScope.activeRoom = room;
+            console.log("New room set to: ", $rootScope.activeRoom);
+            console.log("New room id: ", $rootScope.activeRoom.$id);
+        };
 
         return Room;
     }
 
     angular
         .module('blocChat')
-        .factory('Room', ['$firebaseArray', Room]);
+        .factory('Room', ['$rootScope', '$firebaseArray', Room]);
 })();

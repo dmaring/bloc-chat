@@ -1,8 +1,74 @@
+html,body,.container {
+    height:100%;
+}
+
+.container {
+    display:table;
+    width: 100%;
+    padding: 0 0 0 0; /*set left/right padding according to needs*/
+    box-sizing: border-box;
+}
+
+.message-container {
+    padding-left: 0em;
+    length: auto;
+}
+
+.message-bubble
+{
+    padding: .25em 0px .25em 0px;
+}
+
+.message-bubble:nth-child(odd) { background-color: #F5F5F5; }
+
+.message-bubble > * {
+    padding-left: 1em;
+    padding-right: 1em
+}
+
+.row {
+    height: 100%;
+    display: table-row;
+}
+
+.panel {
+    margin-bottom: 0;
+}
+.panel-body {
+    padding: 0px;
+}
+
+.panel-title {
+
+    color: black !important;
+    font-size: 1.5em;
+    padding: 1.5em 1em 1.5em 1em;
+}
+
+
 .sidebar {
     background-color: #cccccc;
     length: auto;
 }
 
-.roomlist {
+.time-sent {
+    float: right;
+    display: inline-flex;
+    font-size: .75em;
+}
+
+.room-list {
     padding: .5em;
+}
+
+.room-item:hover {
+    cursor: pointer;
+    color: #F5F5F5;
+}
+
+@media (min-width: 992px) {
+  .row .no-float {
+      display: table-cell;
+      float: none;
+  }
 }

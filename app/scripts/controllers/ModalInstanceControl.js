@@ -5,12 +5,12 @@
 
         $ctrl.ok = function () {
             console.log($ctrl.roomName);
-          $uibModalInstance.close($ctrl.roomName);
+            $uibModalInstance.close($ctrl.roomName);
         };
 
         $ctrl.cancel = function () {
           $uibModalInstance.dismiss('cancel');
-      };
+        };
   }
 
   angular
