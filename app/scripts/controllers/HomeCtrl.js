@@ -5,6 +5,7 @@
         this.activeRoom = $rootScope.activeRoom;
         this.activeMessages = $rootScope.activeMessages;
         this.setRoom = Room.setRoom;
+        this.all = Room.all;
         this.roomMessages = function() {
             Message.getByRoomId($rootScope.activeRoom);
         }

@@ -1,0 +1,11 @@
+<div ng-controller="HomeCtrl as home">
+        <div>
+          <div> {{ activeRoom.$value }} </div>
+            <div ng-repeat="message in activeMessages">
+                    <p>{{ message.username }}</p>
+                    <p>{{ message.content }}
+                        <span class="time-sent">{{ message.sentAt }}</span>
+                    </p>
+            </div>
+        </div>
+</div>

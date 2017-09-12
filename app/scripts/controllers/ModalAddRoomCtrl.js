@@ -7,7 +7,7 @@
             console.log("Open modal");
             var modalInstance = $uibModal.open({
             templateUrl: '/templates/modaladdroom.html',
-            controller: 'ModalInstanceCtrl',
+            controller: 'ModalRoomInstanceCtrl',
             controllerAs: '$ctrl'
             });
 

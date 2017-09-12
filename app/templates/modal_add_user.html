@@ -1,0 +1,14 @@
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title">Enter a username</h3>
+    </div>
+    <form name="form.userForm" novalidate>
+        <div class="modal-body">
+            <input type="text" required class="form-control" ng-model="$ctrl.userName"  />
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="submit" ng-disabled="form.userForm.$invalid"
+            ng-click="$ctrl.ok()">OK</button>
+        </div>
+    </form>
+</div>
