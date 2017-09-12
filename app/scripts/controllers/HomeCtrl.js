@@ -9,6 +9,11 @@
         this.roomMessages = function() {
             Message.getByRoomId($rootScope.activeRoom);
         }
+        this.newMessage = " ";
+        this.send = function(newMessage) {
+            Message.send(newMessage);
+            this.newMessage = " ";
+        }
     };
 
     angular

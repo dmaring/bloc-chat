@@ -23,7 +23,8 @@ html,body,.container {
 
 .message-bubble > * {
     padding-left: 1em;
-    padding-right: 1em
+    padding-right: 1em;
+    padding-top: .5em;
 }
 
 .row {

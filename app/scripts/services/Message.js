@@ -3,9 +3,6 @@
         var Message = {};
         var ref = firebase.database().ref().child("messages");
         var messages = $firebaseArray(ref);
-        // var activeRoom = $rootScope.activeRoom;
-        // var activeMessages = $rootScope.activeMessages;
-
 
         /**
         * @function Message.getByRoomId
@@ -22,6 +19,27 @@
             // console.log(roomMessagesArray);
             $rootScope.activeMessages = roomMessagesArray;
         };
+
+        Message.send = function(newMessage) {
+            // create message object and save to database
+            var newMessageObject = {};
+            // get active roomID from $rootScope
+            var activeRoom = $rootScope.activeRoom.$id;
+            // get active user from cookie
+            var activeUser = $rootScope.activeUser;
+            // get the time-sent
+            var timeSent = new Date().getTime();
+            // insert variables into newMessageObject
+            newMessageObject = {'username': activeUser,
+                                'content': newMessage,
+                                'roomID': activeRoom,
+                                'sentAt': timeSent,
+                            };
+            messages.$add(newMessageObject);
+            console.log("added message: ", newMessageObject);
+
+        };
+
 
         return Message;
     }
