@@ -10,17 +10,18 @@
                         <span class="time-sent">{{ message.sentAt }}</span>
                     </p>
                 </div>
-
-            <div class="panel-footer">
-                 <div class="input-group">
-                     <input type="text" ng-model="home.newMessage" class="form-control">
-                     <span class="input-group-btn">
-                     <button class="btn btn-default" type="button" ng-click="home.send(home.newMessage)">Send</button>
-                    </span>
-                </div>
-            </div>
             </div>
         </div>
         </div>
     </div>
+    <form class="test-input" name="form.messageForm" novalidate>
+        <div class="panel-footer">
+             <div class="input-group">
+                 <input type="text" required ng-model="home.newMessage" class="form-control">
+                 <span class="input-group-btn">
+                 <button class="btn btn-default" type="button" ng-click="home.send(home.newMessage)" ng-disabled="form.messageForm.$invalid">Send</button>
+                </span>
+            </div>
+        </div>
+    </form>
 </div>

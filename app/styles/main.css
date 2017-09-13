@@ -12,6 +12,10 @@ html,body,.container {
 .message-container {
     padding-left: 0em;
     length: auto;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #cccccc;
+    border-radius: 5px;
 }
 
 .message-bubble
@@ -56,6 +60,13 @@ html,body,.container {
     float: right;
     display: inline-flex;
     font-size: .75em;
+}
+
+.test-input {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .room-list {

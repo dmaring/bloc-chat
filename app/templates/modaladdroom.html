@@ -1,12 +1,12 @@
-<div>
+<form name="form.roomForm" novalidate>
     <div class="modal-header">
         <h3 class="modal-title">Enter a new room name</h3>
     </div>
     <div class="modal-body">
-        <input ng-model="$ctrl.roomName" />
+        <input ng-model="$ctrl.roomName" required class="form-control" />
     </div>
     <div class="modal-footer">
-        <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">OK</button>
+        <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()" ng-disabled="form.roomForm.$invalid">OK</button>
         <button class="btn btn-default" type="button" ng-click="$ctrl.cancel()">Cancel</button>
     </div>
-</div>
+</form>
