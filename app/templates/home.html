@@ -2,12 +2,12 @@
     <div class="row">
         <div class="panel panel-default">
           <div class="panel-title"> {{ activeRoom.$value }} </div>
-          <div class="panel-body">
+          <div class="panel-body panel-message-body">
             <div class="container">
                 <div class="row message-bubble" ng-repeat="message in activeMessages">
                     <p class="text-muted">{{ message.username }}</p>
                     <p> {{ message.content }}
-                        <span class="time-sent">{{ message.sentAt }}</span>
+                        <span class="time-sent">{{ message.sentAt | date:'MMM d, y @ h:mm a' }}</span>
                     </p>
                 </div>
             </div>

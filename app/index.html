@@ -10,11 +10,9 @@
         <div class="container" ng-controller="HomeCtrl as home">
             <div class="row">
                 <div class="sidebar col-md-3 no-float">
-                    <div>
-                        <h2>Bloc Chat</h2>
-                    </div>
+                        <h2 class="bloc-chat-title">Bloc Chat</h2>
                     <div ng-controller="ModalAddRoomCtrl as modal">
-                        <button class=type="button" class="btn btn-default" ng-click="modal.open()">Create new room</button>
+                        <button type="button" class="btn btn-default btn-md" ng-click="modal.open()">Create new room</button>
                     </div>
                         <div>
                             <ul class="list-unstyled room-list">
