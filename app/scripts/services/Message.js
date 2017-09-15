@@ -20,6 +20,11 @@
             $rootScope.activeMessages = roomMessagesArray;
         };
 
+        /**
+        * @function Message.send
+        * @desc take new message, create message object, add to firbasedatabase
+        * @param {string}
+        */
         Message.send = function(newMessage) {
             // create message object and save to database
             var newMessageObject = {};
