@@ -1,5 +1,5 @@
 (function() {
-    function Message($rootScope, $firebaseArray) {
+    function Message($firebaseArray, $cookies) {
         var Message = {};
         var ref = firebase.database().ref().child("messages");
         var messages = $firebaseArray(ref);
@@ -12,27 +12,25 @@
         */
         Message.getByRoomId = function(activeRoom) {
             // console.log("Message.getByRoomID argument passed: ", activeRoom);
-            var roomId = activeRoom.$id;
+            var roomID = activeRoom.$id;
+
+            console.log(">>>", roomID);
             // console.log("activeRoom.$id: ", activeRoom.$id)
-            var roomMessagesRef = ref.orderByChild("roomID").equalTo(roomId);
+            var roomMessagesRef = ref.orderByChild("roomID").equalTo(roomID);
             var roomMessagesArray = $firebaseArray(roomMessagesRef);
             // console.log(roomMessagesArray);
-            $rootScope.activeMessages = roomMessagesArray;
+            return roomMessagesArray;
         };
 
-        Message.send = function(newMessage) {
-            // create message object and save to database
-            var newMessageObject = {};
-            // get active roomID from $rootScope
-            var activeRoom = $rootScope.activeRoom.$id;
+        Message.send = function(newMessage, activeUser, activeRoom) {
             // get active user from cookie
-            var activeUser = $rootScope.activeUser;
+            // var activeUser = $cookies.get('blocChatCurrentUser');
             // get the time-sent
             var timeSent = new Date().getTime();
             // insert variables into newMessageObject
             newMessageObject = {'username': activeUser,
                                 'content': newMessage,
-                                'roomID': activeRoom,
+                                'roomID': activeRoom.$id,
                                 'sentAt': timeSent,
                             };
             messages.$add(newMessageObject);
@@ -46,5 +44,5 @@
 
     angular
         .module('blocChat')
-        .factory('Message', ['$rootScope', '$firebaseArray', Message]);
+        .factory('Message', ['$firebaseArray', '$cookies', Message]);
 })()

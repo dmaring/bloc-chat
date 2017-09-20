@@ -1,5 +1,5 @@
 (function() {
-    function Room($rootScope, $firebaseArray) {
+    function Room($firebaseArray) {
         /**
         * @desc Global object to hold room properties
         * @type {object}
@@ -42,9 +42,9 @@
         Room.setRoom = function(room) {
             // set active room
             // Room.activeRoom = room
-            $rootScope.activeRoom = room;
-            console.log("New room set to: ", $rootScope.activeRoom);
-            console.log("New room id: ", $rootScope.activeRoom.$id);
+            Room.activeRoom = room;
+            console.log("New room set to: ", Room.activeRoom);
+            console.log("New room id: ", Room.activeRoom.$id);
         };
 
         return Room;
@@ -52,5 +52,5 @@
 
     angular
         .module('blocChat')
-        .factory('Room', ['$rootScope', '$firebaseArray', Room]);
+        .factory('Room', ['$firebaseArray', Room]);
 })();
