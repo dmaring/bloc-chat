@@ -1,5 +1,5 @@
 (function() {
-    function BlocChatCookies($rootScope, $cookies, $uibModal) {
+    function BlocChatAuthenticate($rootScope, $uibModal, Auth) {
         var currentUser = $cookies.get('blocChatCurrentUser');
         if (!currentUser || currentUser === '') {
             var modalInstance = $uibModal.open({
@@ -10,9 +10,8 @@
             keyboard: false
             });
 
-            modalInstance.result.then(function (userName) {
-                console.log("Adding user ", userName);
-                $cookies.put('blocChatCurrentUser', userName);
+            modalInstance.result.then(function (userName, userEmail, userPassword) {
+                Auth.put('blocChatCurrentUser', userName);
                 $rootScope.activeUser = userName;
                 console.log("$rootScope.activeUser is ", $rootScope.activeUser)
                 });
@@ -23,5 +22,5 @@
 
     angular
     .module('blocChat')
-    .run(['$rootScope', '$cookies', '$uibModal', BlocChatCookies]);
+    .run(['$rootScope', '$uibModal', 'Auth', BlocChatCookies]);
 })();

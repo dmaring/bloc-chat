@@ -1,0 +1,33 @@
+<div>
+    <h2>User Admin Control</h2>
+</div>
+<div>
+    <p ng-hide="currentUser">
+        Please sign in or create a user account.
+    </p>
+    <p ng-show="currentUser">
+        User {{ currentUser.email }} is signed in
+    </p>
+    <div>
+        <button ng-click="users.getUser()">Get User</button>
+        <button ng-click="users.signOutUser()">Sign out</a>
+    </div>
+    <div class="sign-in form">
+        <h3> Existing user sign-in</h3>
+        <form>
+            <input type="email" ng-model="existingUserEmail" />
+            <input type="password" ng-model="existingUserPassword" />
+            <button ng-click="users.signInUser(existingUserEmail, existingUserPassword); users.getUser">
+                Sign In
+            </button>
+        </form>
+        <h3> Create new user account</h3>
+        <form>
+            <input type="email" ng-model="newUserEmail" />
+            <input type="password" ng-model="newUserPassword" />
+            <button ng-click="users.createUser(newUserEmail, newUserPassword)">
+                Create account
+            </button>
+        </form>
+    </div>
+</div>

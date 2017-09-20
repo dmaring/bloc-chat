@@ -13,6 +13,12 @@
             templateUrl: '/templates/home.html'
             })
 
+            .state('users', {
+            url: '/useradmin',
+            controller: 'UserAdminCtrl as users',
+            templateUrl: '/templates/useradmin.html'
+            })
+
     }
     angular
         .module('blocChat', ['ui.router', 'firebase', 'ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ngCookies'])
