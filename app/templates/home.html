@@ -1,24 +1,38 @@
-<div class="container" ng-controller="HomeCtrl as home">
+<div class="container">
     <div class="row">
-        <div class="panel panel-default">
-          <div class="panel-title"> {{ activeRoom.$value }} </div>
-          <div class="panel-body">
+        <div class="sidebar col-md-3">
+            <div>
+                <h2>Bloc Chat</h2>
+            </div>
+            <div ng-controller="ModalAddRoomCtrl as modal">
+                <button class=type="button" class="btn btn-default" ng-click="modal.open()">Create new room</button>
+            </div>
+            <div>
+                <ul class="list-unstyled room-list">
+                    <li ng-repeat="roomObject in home.all">
+                        <span class="room-item" ng-click="home.setRoom(roomObject)">{{ roomObject.$value }}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel panel-default message-container col-md-9">
+          <div class="panel-title"> {{ home.activeRoom.$value }} </div>
+          <div class="panel-body message-view">
             <div class="container">
-                <div class="row message-bubble" ng-repeat="message in activeMessages">
+                <div class="row message-bubble" ng-repeat="message in home.activeMessages">
                     <p class="text-muted">{{ message.username }}</p>
                     <p> {{ message.content }}
-                        <span class="time-sent">{{ message.sentAt }}</span>
+                        <span class="time-sent">{{ message.sentAt | date:'medium' }}</span>
                     </p>
                 </div>
-
-            <div class="panel-footer">
-                 <div class="input-group">
-                     <input type="text" ng-model="home.newMessage" class="form-control">
-                     <span class="input-group-btn">
-                     <button class="btn btn-default" type="button" ng-click="home.send(home.newMessage)">Send</button>
-                    </span>
-                </div>
             </div>
+        </div>
+        <div class="panel-footer message-box">
+             <div class="input-group">
+                 <input type="text" ng-model="home.newMessage" class="form-control">
+                 <span class="input-group-btn">
+                 <button class="btn btn-default" type="button" ng-click="home.send(home.newMessage)">Send</button>
+                </span>
             </div>
         </div>
         </div>

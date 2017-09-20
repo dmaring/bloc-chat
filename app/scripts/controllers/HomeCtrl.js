@@ -1,17 +1,23 @@
 (function() {
-    function HomeCtrl($rootScope, Room, Message) {
-        $rootScope.activeRoom = " ";
-        $rootScope.activeMessages = " ";
-        this.activeRoom = $rootScope.activeRoom;
-        this.activeMessages = $rootScope.activeMessages;
-        this.setRoom = Room.setRoom;
+    function HomeCtrl(Room, Message, $cookies) {
+        var ctrl = this;
+        //this.activeRoom = Room.activeRoom;
+        //this.activeMessages = null;
+        this.currentUser = $cookies.get('blocChatCurrentUser');
+        this.setRoom = function (roomObject) {
+            console.log("Test");
+            Room.setRoom(roomObject);
+            ctrl.activeRoom = roomObject;
+            console.log(this.activeRoom);
+            this.roomMessages(roomObject);
+        };
         this.all = Room.all;
-        this.roomMessages = function() {
-            Message.getByRoomId($rootScope.activeRoom);
-        }
+        this.roomMessages = function(roomObject) {
+            this.activeMessages = Message.getByRoomId(roomObject);
+        };
         this.newMessage = " ";
         this.send = function(newMessage) {
-            Message.send(newMessage);
+            Message.send(newMessage, this.currentUser, this.activeRoom);
             this.newMessage = " ";
         }
     };
@@ -20,5 +26,5 @@
         // tie controller to project module
         .module('blocChat')
         // name controller, add dependancies, call callback function last in list
-        .controller('HomeCtrl', ['$rootScope', 'Room', 'Message', HomeCtrl]);
+        .controller('HomeCtrl', ['Room', 'Message', '$cookies', HomeCtrl]);
 })();

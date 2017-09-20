@@ -2,16 +2,45 @@ html,body,.container {
     height:100%;
 }
 
+.bloc-chat-title {
+    min-height: 63px;
+
+}
+
+h2.bloc-chat-title {
+    margin: 1em 1em 0em 1em;
+}
+
+
 .container {
     display:table;
     width: 100%;
+    height: 100%;
     padding: 0 0 0 0; /*set left/right padding according to needs*/
     box-sizing: border-box;
+    max-height: 776px;
 }
 
 .message-container {
     padding-left: 0em;
-    length: auto;
+    padding-right: 0em;
+    height: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #cccccc;
+    border-radius: 5px;
+
+}
+
+.message-box {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.message-view {
+    overflow-y: scroll;
+    max-height: 623px;
 }
 
 .message-bubble
@@ -44,12 +73,22 @@ html,body,.container {
     color: black !important;
     font-size: 1.5em;
     padding: 1.5em 1em 1.5em 1em;
+    min-height: 93px;
+    border-bottom: 1px solid;
+    border-radius: 5px;
+    border-color: #cccccc;
 }
 
+.panel-message-body {
+    max-height: 620px;
+    overflow-y: scroll;
+}
 
 .sidebar {
     background-color: #cccccc;
-    length: auto;
+    height: 100%;
+    border-radius: 5px;
+    text-align: center;
 }
 
 .time-sent {
@@ -58,8 +97,24 @@ html,body,.container {
     font-size: .75em;
 }
 
+.test-input {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.text-muted {
+    margin: 0;
+}
+
 .room-list {
     padding: .5em;
+    font-size: 1.25em;
+}
+
+.room-item {
+    padding: .5em 0em .5em;
 }
 
 .room-item:hover {

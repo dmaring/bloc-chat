@@ -7,28 +7,7 @@
     <link rel="stylesheet" href="/styles/main.css">
 </head>
     <body>
-        <div class="container" ng-controller="HomeCtrl as home">
-            <div class="row">
-                <div class="sidebar col-md-3 no-float">
-                    <div>
-                        <h2>Bloc Chat</h2>
-                    </div>
-                    <div ng-controller="ModalAddRoomCtrl as modal">
-                        <button class=type="button" class="btn btn-default" ng-click="modal.open()">Create new room</button>
-                    </div>
-                        <div>
-                            <ul class="list-unstyled room-list">
-                                <li ng-repeat="roomObject in home.all">
-                                    <span class="room-item" ng-click="home.setRoom(roomObject); home.roomMessages(roomObject)">{{ roomObject.$value }}</span>
-                                </li>
-                            </ul>
-                        </div>
-                </div>
-                <div class="message-container col-md-9 no-float">
-                    <ui-view></ui-view>
-                </div>
-            </div>
-        </div>
+        <ui-view></ui-view>
         <!-- Angular -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>
