@@ -18,7 +18,6 @@
                 });
         }
         $rootScope.activeUser = currentUser;
-        console.log("$rootScope.activeUser is: ", $rootScope.activeUser);
     }
 
     angular

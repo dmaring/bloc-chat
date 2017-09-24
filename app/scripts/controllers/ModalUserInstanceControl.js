@@ -4,7 +4,7 @@
         $ctrl.userName = undefined;
 
         $ctrl.ok = function () {
-            console.log($ctrl.userName);
+            // console.log($ctrl.userName);
             $uibModalInstance.close($ctrl.userName);
         };
     }

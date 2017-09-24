@@ -18,7 +18,7 @@ h2.bloc-chat-title {
     height: 100%;
     padding: 0 0 0 0; /*set left/right padding according to needs*/
     box-sizing: border-box;
-    max-height: 776px;
+    max-height: 900px;
 }
 
 .message-container {
@@ -40,7 +40,7 @@ h2.bloc-chat-title {
 
 .message-view {
     overflow-y: scroll;
-    max-height: 623px;
+    max-height: 750px;
 }
 
 .message-bubble

@@ -1,14 +1,10 @@
 (function() {
     function HomeCtrl(Room, Message, $cookies) {
         var ctrl = this;
-        //this.activeRoom = Room.activeRoom;
-        //this.activeMessages = null;
         this.currentUser = $cookies.get('blocChatCurrentUser');
         this.setRoom = function (roomObject) {
-            console.log("Test");
             Room.setRoom(roomObject);
             ctrl.activeRoom = roomObject;
-            console.log(this.activeRoom);
             this.roomMessages(roomObject);
         };
         this.all = Room.all;

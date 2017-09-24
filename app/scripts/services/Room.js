@@ -31,7 +31,6 @@
             roomsList.$add(room).then(function(ref) {
                 var id = ref.key;
                 console.log("added record with id " + id);
-                console.log(roomsList.$indexFor(id)); // returns location in the array
             });
         };
         /**
@@ -43,7 +42,6 @@
             // set active room
             // Room.activeRoom = room
             Room.activeRoom = room;
-            console.log("New room set to: ", Room.activeRoom);
             console.log("New room id: ", Room.activeRoom.$id);
         };
 
